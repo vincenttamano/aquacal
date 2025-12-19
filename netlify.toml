@@ -1,0 +1,19 @@
+## Netlify configuration for Next.js
+## Uses the official Netlify Next.js plugin to build and deploy App Router apps
+[build]
+  # Build command - use your package.json scripts
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[context.production.environment]
+  # Optional: lock Node version on Netlify
+  NODE_VERSION = "18"
+
+# If you need to set environment variables for production builds,
+# add them under [context.production.environment] or in the Netlify UI.
+# Common placeholders you may want to set in Netlify (replace values in the UI):
+NEXT_PUBLIC_API_URL = ""
+NEXT_PUBLIC_ANALYTICS_ID = ""
+SOME_SECRET_KEY = ""

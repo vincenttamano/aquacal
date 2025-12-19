@@ -2,7 +2,10 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ffffff;
+  /* Prefer Google Sans where available, fall back to Inter/ system fonts */
+  --font-geist-sans: 'Google Sans', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-heading: 'Merriweather', Georgia, 'Times New Roman', serif;
 }
 
 @theme inline {
@@ -22,5 +25,27 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans);
 }
+
+/* Use Merriweather for headings for a more formal/business tone */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Scroll reveal utility: add class 'reveal' to elements you want to animate on scroll */
+.reveal { opacity: 0; transform: translateY(12px) scale(0.995); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1); }
+.reveal.in-view { opacity: 1; transform: translateY(0) scale(1); }
+
+/* Card hover polish */
+.feature-card { transition: transform .22s ease, box-shadow .22s ease; }
+.feature-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 12px 30px rgba(2,6,23,0.08); }
+
+/* Ensure placeholders and form text are black */
+input::placeholder, textarea::placeholder { color: #000; opacity: 0.6; }
+
+/* Buttons subtle hover */
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(2,6,23,0.06); }
+
+/* Increase spacing between page sections */
+section { margin-block: 2.5rem; }
